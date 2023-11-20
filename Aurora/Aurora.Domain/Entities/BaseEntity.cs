@@ -20,7 +20,7 @@ namespace Aurora.Domain.Entities
 		public void Deactivate()
 			=> Status = false;
 
-		public void Activete()
+		public void Activate()
 			=> Status = true;
 	}
 }

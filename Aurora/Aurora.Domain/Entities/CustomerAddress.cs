@@ -10,15 +10,16 @@ namespace Aurora.Domain.Entities
         public ZipCode ZipCode { get; private set; }
         public int CityId { get; private set; }
         public int StateId { get; private set; }
+        public int CustomerId { get; set; }
 
-		public CustomerAddress() { }
+        public CustomerAddress() { }
 
-		public CustomerAddress(string address, int number, string complement, ZipCode zipCode, int cityId, int stateId, DateTime register, bool status) : base(register, status)
+		public CustomerAddress(string address, int number, string complement, string zipCode, int cityId, int stateId, DateTime register, bool status) : base(register, status)
 		{
 			Address = address;
 			Number = number;
 			Complement = complement;
-			ZipCode = zipCode;
+			ZipCode = new ZipCode(zipCode);
 			CityId = cityId;
 			StateId = stateId;
 		}

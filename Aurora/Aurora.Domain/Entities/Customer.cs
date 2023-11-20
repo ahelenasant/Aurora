@@ -19,8 +19,9 @@ namespace Aurora.Domain.Entities
 		}
 
 		public void AddAddress(CustomerAddress address)
-		{
-			Addresses.Add(address);
-		}
+			=> Addresses.Add(address);
+
+		public void FillInAddress(int id)
+			=> Addresses.ForEach(a => a.CustomerId = this.Id);
 	}
 }
