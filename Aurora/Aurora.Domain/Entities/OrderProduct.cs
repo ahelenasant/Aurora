@@ -2,19 +2,19 @@
 
 namespace Aurora.Domain.Entities
 {
-	public class SaleProduct
+	public class OrderProduct
 	{
 
 		[Key]
         public int Id { get; }
-        public Sale Sale { get; private set; }
+        public Order Sale { get; private set; }
         public Product Product { get; private set; }
         public int Quantity { get; private set; }
         public double Discount { get; private set; }
 
-		public SaleProduct() { }
+		public OrderProduct() { }
 
-		public SaleProduct(Sale sale, Product product, int quantity, double discount)
+		public OrderProduct(Order sale, Product product, int quantity, double discount)
 		{
 			Sale = sale;
 			Product = product;
