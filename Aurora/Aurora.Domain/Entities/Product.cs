@@ -15,13 +15,19 @@
 			Stock = stock;
 		}
 
-		public void AddStockItems(int value)
-			=> Stock += value;
-
 		public void RemoveStockItems(int value)
-			=> Stock -= value;
+		{
+			if (VerifyStock(value))
+			{
+				Stock -= value;
+			}
+			else
+			{
+				throw new InvalidOperationException($"Produto {Description} sem estoque!");
+			}
+		}
 
-		public void UpdatePrice(double value)
-			=> Price = value;
+		private bool VerifyStock(int value)
+			=> Stock > 0 && Stock > value;
     }
 }
