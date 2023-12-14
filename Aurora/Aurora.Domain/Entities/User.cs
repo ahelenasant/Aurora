@@ -1,6 +1,7 @@
 ﻿namespace Aurora.Domain.Entities
 {
-	public class User : BaseEntity
+	public class User
+		: BaseEntity
 	{
         public string Name { get; private set; }
         public string Login { get; private set; }

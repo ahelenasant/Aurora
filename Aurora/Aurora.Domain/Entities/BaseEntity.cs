@@ -16,11 +16,5 @@ namespace Aurora.Domain.Entities
 			Register = register;
 			Status = status;
 		}
-
-		public void Deactivate()
-			=> Status = false;
-
-		public void Activate()
-			=> Status = true;
 	}
 }

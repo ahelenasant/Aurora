@@ -1,6 +1,7 @@
 ﻿namespace Aurora.Domain.Entities
 {
-	public class Order : BaseEntity
+	public class Order
+		: BaseEntity
 	{
         public Customer Customer { get; private set; }
         public User User { get; private set; }
@@ -22,9 +23,20 @@
 		}
 
 		public void UpdateStock()
-			=> OrderProducts.ForEach(p => p.Product.RemoveStockItems(p.Quantity));
+			=> OrderProducts.ForEach(p => p.Product.RemoveStockItems(p.Amount));
 
 		public void FillOrderProducts(int id)
 			=> OrderProducts.ForEach(p => p.SetOrderId(id));
+
+		public void VerifyProducts()
+		{
+			foreach (var item in OrderProducts)
+			{
+				item.Product.VerifyStatus();
+			}
+		}
+
+		public void VerifyCustomer()
+			=> Customer.VerifyStatus();
 	}
 }

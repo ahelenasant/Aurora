@@ -2,7 +2,8 @@
 
 namespace Aurora.Domain.Entities
 {
-	public class CustomerAddress : BaseEntity
+	public class CustomerAddress
+		: BaseEntity
 	{
         public string Address { get; private set; }
         public int Number { get; private set; }

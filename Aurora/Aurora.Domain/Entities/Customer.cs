@@ -23,5 +23,10 @@ namespace Aurora.Domain.Entities
 
 		public void FillInAddress(int id)
 			=> Addresses.ForEach(a => a.CustomerId = this.Id);
+
+		internal void VerifyStatus()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

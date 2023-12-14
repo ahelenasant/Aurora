@@ -1,6 +1,7 @@
 ﻿namespace Aurora.Domain.Entities
 {
-	public class Product : BaseEntity
+	public class Product
+		: BaseEntity
 	{
         public string Description { get; private set; }
         public double Price { get; private set; }
@@ -23,11 +24,17 @@
 			}
 			else
 			{
-				throw new InvalidOperationException($"Produto {Description} sem estoque!");
+				throw new ArgumentException($"Produto {Description} sem estoque.");
 			}
 		}
 
 		private bool VerifyStock(int value)
 			=> Stock > 0 && Stock > value;
-    }
+
+		internal void VerifyStatus()
+		{
+			if(!Status)
+				throw new ArgumentException($"Produto {Description} está desativado.");
+		}
+	}
 }

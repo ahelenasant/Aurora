@@ -5,7 +5,7 @@ namespace Aurora.Application.Repositories
 	public interface ICustomerAddressRepository
 	{
 		CustomerAddress Get(int id);
-		void InsertRange(List<CustomerAddress> addresses);
-		void UpdateRange(CustomerAddress address);
+		void InsertRange(IEnumerable<CustomerAddress> addresses);
+		void UpdateRange(IEnumerable<CustomerAddress> customerAddress);
 	}
 }

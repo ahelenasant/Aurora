@@ -2,8 +2,9 @@
 
 namespace Aurora.Application.Repositories
 {
-	public interface IOrderRepositoy
+	public interface IOrderRepository
 	{
+		IEnumerable<Order> Get();
 		int Insert(Order order);
 	}
 }

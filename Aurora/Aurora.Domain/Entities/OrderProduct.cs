@@ -7,7 +7,7 @@ namespace Aurora.Domain.Entities
 
 		[Key]
         public int Id { get; }
-        public int Quantity { get; private set; }
+        public int Amount { get; private set; }
         public double Discount { get; private set; }
         public int OrderId { get; private set; }
         public Order Order { get; private set; }
@@ -15,16 +15,16 @@ namespace Aurora.Domain.Entities
 
 		public OrderProduct() { }
 
-		public OrderProduct(Order order, Product product, int quantity, double discount)
+		public OrderProduct(Order order, Product product, int amount, double discount)
 		{
 			Order = order;
 			Product = product;
-			Quantity = quantity;
+			Amount = amount;
 			Discount = discount;
 		}
 
 		internal double GetPrice()
-			=> (Product.Price - GetDiscountPerProduct()) * Quantity;
+			=> (Product.Price - GetDiscountPerProduct()) * Amount;
 
 		private double GetDiscountPerProduct()
 			=> Product.Price * Discount;
